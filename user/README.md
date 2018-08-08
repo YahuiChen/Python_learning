@@ -38,4 +38,16 @@
     安装时自定义，设置空格缩进(文本编辑器->C/C++->制表符|格式设置->缩进->缩进命名空间内容)，安装插件(CodeMaid，Markdown Editor，New Translator2，Viasfora，Visual Assit(破解)，VsTranslator，VsVim)，设置字体(文本编辑器Consolas)，设置快捷键(键盘)，安装Python2.7,3.5(vs2015最高3.5),utf-8
 )
 >>24.VS code(插件C++ Intellisense,Chinese Language),Markdown Preview Enhanced,open-in-browser,Output Colorizer,VSCode Great Icons,翻译，Bracket Pair Colorizer  //UTF-8)
->>25.
+>>25.Steam(csgo备份，游戏资料备份) //美版暴雪盒子 //Origin //Uplay
+>>26.工行控件，12306控件
+>>27.PotPlayer(皮肤)
+>>28.Python2.7 3.5 Jre (添加环境变量,vs中)
+>>29.
+
+
+
+
+
+
+>>Fight Pad Pro /Skype /NetLimiter 4 /Ditto /Seer
+>>snipaste /火绒 /
