@@ -3,52 +3,37 @@
 #include "List1.h"
 using namespace std;
 
-/*
-node的成员函数
-*/
-template <typename t1, typename t2>  //返回数据域data1的值
-t1 node<t1, t2>::getData1() {
-    return data1;
+
+int node::getData() {
+    return data;
 }
 
-template <typename t1, typename t2> //返回数据域data2的值
-t2 node<t1, t2>::getData2() {
-    return data2;
-}
 
-template <typename t1, typename t2>  //返回后继结点指针
-node<t1, t2> * node<t1, t2>::getNext() {
+
+node  * node::getNext() {
     return next;
 }
 
-template <typename t1, typename t2>  //设置数据域data1的值
-void node<t1, t2>::setData1(t1 da1) {
-    data1 = da1;
+
+void node::setData(int da) {
+    data = da;
 }
 
-template <typename t1, typename t2>  //设置数据域data2的值
-void node<t1, t2>::setData2(t2 da2) {
-    data2 = da2;
-}
 
-template <typename t1, typename t2>  //设置后继结点指针
-void node<t1, t2>::setNext(node<t1, t2> * x) {
+void node::setNext(node  * x) {
     next = x;
 }
 
-/*
-list的成员函数
-*/
-template <typename t1, typename t2>  //链表构造函数，创建头结点(头结点数值域没有意义，置为0)
-list<t1, t2>::list() {
+
+list::list() {
     num = 0;
-    head = new node<t1, t2>(0, 0);
+    head = new node(0);
 }
 
-template <typename t1, typename t2>  //链表析构函数，依次释放各个节点，包括头结点
-list<t1, t2>::~list() {
-    node<t1, t2> *p = head;
-    node<t1, t2> *q = head->getNext();
+
+list ::~list() {
+    node  *p = head;
+    node  *q = head->getNext();
     while (p) {
         q = p->getNext();
         if (p != NULL)
@@ -58,19 +43,17 @@ list<t1, t2>::~list() {
 }
 
 //头插入
-template <typename t1, typename t2>  //从head指向的结点处插入结点
-void list<t1, t2>::insertFront(node<t1, t2> &x) {
-    node<t1, t2> *p = head->getNext();
+void list::insertFront(node &x) {
+    node *p = head->getNext();
     head->setNext(&x);
     x.setNext(p);
     num++;
 }
 
 //尾插入
-template <typename t1, typename t2>  //从链表末尾插入结点
-void list<t1, t2>::insertAfter(node<t1, t2> &x) {
-    node<t1, t2> *p = head;
-    node<t1, t2> *q = NULL;
+void list::insertAfter(node &x) {
+    node *p = head;
+    node *q = NULL;
     while (p) {
         q = p->getNext();
         if (q == NULL)
@@ -80,79 +63,39 @@ void list<t1, t2>::insertAfter(node<t1, t2> &x) {
     num++;
 }
 
-template <typename t1, typename t2>  //在第i个结点处插入结点
-void list<t1, t2>::insert(int i, node<t1, t2> &x) {
-    if (i == 1)
-        insertFront(x);
-    else if (i > 1 && i <= num) {
-        num++;
-        int j = 0;
-        node<t1, t2> * p = head;
-        node<t1, t2> * q = NULL;
-        while (p) {
-            j++;
-            p = p->getNext();
-            q = p->getNext();
-            if (j == i - 1) {
-                p->setNext(&x);
-                x.setNext(q);
-                break;
-            }
-        }
-    }
-    else {
-        cout << "插入位置出错" << endl;
-        exit(1);
-    }
+void list::deleteFront() {
+    node *p = head->getNext()->getNext();
+    node *q = head->getNext();
+    head->setNext(p);
+    delete q;
+    num--;
+
 }
 
-template <typename t1, typename t2>   //删除第i个结点
-void list<t1, t2>::deleteNode(int i) {
-    if (i >= 1 && i <= num) {
-        int j = 0;
-        node<t1, t2> * p = head;
-        node<t1, t2> * q = NULL;
-        while (p) {
-            if (j == i - 1) {
-                q = p->getNext();
-                p->setNext(q->getNext());
-                delete q;
-                num--;
-                break;
-            }
-            j++;
-            p = p->getNext();
-        }
-    }
-    else {
-        cout << "删除位置出错" << endl;
-        exit(1);
-    }
-}
 
-template <typename t1, typename t2> //设置第i个结点的数值域data1和data2
-void list<t1, t2>::setNode(int i, t1 da1, t2 da2) {
-    int j = 0;
-    node<t1, t2> *p = head;
-    while (p) {
-        j++;
+void list::deleteAfter()
+{
+    int j = num;
+    int i = 0;
+    node *p = head;
+    for (i = 0; i < num - 1; i++)
+    {
         p = p->getNext();
-        if (j == i) {
-            p->setData1(da1);
-            p->setData2(da2);
-        }
     }
+    delete p->getNext();
+    p->setNext(NULL);
+    num--;
 }
 
-template <typename t1, typename t2>   //打印整个列表
-void list<t1, t2>::printAll() {
-    node<t1, t2> *p = head->getNext();
+
+void list::printAll() {
+    node *p = head->getNext();
     if (p == NULL)
         cout << "表为空" << endl;
     else {
         int i = 1;
         while (p) {
-            cout << "第" << i << "结点" << "data1=" << p->getData1() << "	" << "data2=" << p->getData2() << endl;
+            cout << "第" << i << "结点" << "data1=" << p->getData() << endl;
             i++;
             p = p->getNext();
         }
