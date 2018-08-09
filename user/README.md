@@ -51,3 +51,21 @@
 
 >>Fight Pad Pro /Skype /NetLimiter 4 /Ditto /Seer
 >>snipaste /火绒 /
+
+##手机
+>>战网安全令、Microsoft Authen、
+>>微信(电脑同步)，TIM，Telegram(+1(567)236-1203)，环聊
+>>QQ浏览器(微信登录)，讯飞输入法(微信登录)
+>>百度云，Onedrive，Dropbox，FolderSync
+>>哔哩哔哩(134514)，即刻(微博)，xx贴吧(百度云),Max+(Steam登录)，知乎(134514)，微博，多看阅读，腾讯动漫
+>>支付宝，淘宝，京东，滴滴，有调(weibo)，什么值得买(weibo)，闲鱼，淘票票，菜鸟裹裹，手机营业厅(联通)，工商银行，光大银行，PayPal(gmail)
+>>SSR，steam，Ubisoft Club
+>>Instagram,Twitter,Reddit
+>>斐讯路由，华为link，ofo(15656)，摩拜(15656)，米家(15656)，下厨房
+>>高德地图(weibo)，网易有道词典
+>>Play商店，酷安(15656)
+>>google翻译
+>>MarkdownX
+>>虚拟返回键,ES文件浏览器,ZArchiver，MX播放器，WPS
+>>斗鱼(weibo)，Twitch(bl1mey),优酷(weibo)，火猫(1565657)，熊猫(weibo)
+>>Tb(gmail)，Ph(dinical11)，An
