@@ -1,11 +1,3 @@
 ﻿  2.1.cpp
-e:\documents\github\python_learning\cpp_learning\hw\2.1\2.1.cpp(49): error C2065: “t1”: 未声明的标识符
-e:\documents\github\python_learning\cpp_learning\hw\2.1\2.1.cpp(49): error C2065: “t2”: 未声明的标识符
-e:\documents\github\python_learning\cpp_learning\hw\2.1\2.1.cpp(49): error C2923: “node”: 对于参数“t1”，“t1”不是有效的 模板 类型变量
-e:\documents\github\python_learning\cpp_learning\hw\2.1\2.1.cpp(49): error C2923: “node”: 对于参数“t2”，“t2”不是有效的 模板 类型变量
-e:\documents\github\python_learning\cpp_learning\hw\2.1\2.1.cpp(49): error C2955: “node”: 使用 类 模板 需要 模板 参数列表
-  e:\documents\github\python_learning\cpp_learning\hw\2.1\2.1.cpp(12): note: 参见“node”的声明
-e:\documents\github\python_learning\cpp_learning\hw\2.1\2.1.cpp(49): error C2143: 语法错误: 缺少“;”(在“node<t1,t2>::getData1”的前面)
-e:\documents\github\python_learning\cpp_learning\hw\2.1\2.1.cpp(49): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
-e:\documents\github\python_learning\cpp_learning\hw\2.1\2.1.cpp(49): error C2509: “getData1”: 成员函数没有在“node”中声明
-  e:\documents\github\python_learning\cpp_learning\hw\2.1\2.1.cpp(12): note: 参见“node”的声明
+  2.1.vcxproj -> E:\Documents\GitHub\Python_learning\cpp_learning\hw\Debug\2.1.exe
+  2.1.vcxproj -> E:\Documents\GitHub\Python_learning\cpp_learning\hw\Debug\2.1.pdb (Full PDB)
