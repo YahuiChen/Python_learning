@@ -1,6 +1,5 @@
-﻿  bsttree.cpp
-  2.3.1.cpp
-f:\360data\重要数据\我的文档\github\python_learning\cpp_learning\hw\2.3\2.3.1.cpp(139): error C3861: “tree_insert”: 找不到标识符
-f:\360data\重要数据\我的文档\github\python_learning\cpp_learning\hw\2.3\2.3.1.cpp(141): error C3861: “inorder_tree_walk”: 找不到标识符
-f:\360data\重要数据\我的文档\github\python_learning\cpp_learning\hw\2.3\2.3.1.cpp(143): error C3861: “preorder_tree_walk”: 找不到标识符
+﻿  BSTree.cpp
+  2.3.cpp
   正在生成代码...
+  2.3.vcxproj -> E:\Documents\GitHub\Python_learning\cpp_learning\hw\Debug\2.3.exe
+  2.3.vcxproj -> E:\Documents\GitHub\Python_learning\cpp_learning\hw\Debug\2.3.pdb (Full PDB)
