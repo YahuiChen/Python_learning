@@ -69,3 +69,6 @@
 >>虚拟返回键,ES文件浏览器,ZArchiver，MX播放器，WPS
 >>斗鱼(weibo)，Twitch(bl1mey),优酷(weibo)，火猫(1565657)，熊猫(weibo)
 >>Tb(gmail)，Ph(dinical11)，An
+
+082012ff4641ee64b530bc399b0ed8d6
+./mtproto-proxy -u nobody -p 8888 -H 443 -S  082012ff4641ee64b530bc399b0ed8d6 --aes-pwd proxy-secret proxy-multi.conf -M 1
