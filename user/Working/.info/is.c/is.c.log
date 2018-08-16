@@ -1,0 +1,1383 @@
+TRACE (-1,-1):CPV Calculator ...
+INFO #@(7,1):VR={CPV-C:FuncName:  InsertionSort}
+INFO #@(7,1):AS={Q(0):\length(a) == n && n == 1000}
+INFO #@(7,1):AS={P(0):\true }
+INFO #@(7,1):AS={Q(0):n == 1000}
+INFO #@(7,1):AS={P(0):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+TRACE (9,5):&&&&&&DeclStmt_start&&&&&&
+TRACE (9,5):after smpl current assertion:
+INFO #@(9,5):AS={Q(0):n == 1000}
+INFO #@(9,5):AS={P(0):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+TRACE (9,5):#####DeclStmt_end#####
+
+TRACE (10,5):&&&&&&DeclStmt_start&&&&&&
+TRACE (10,5):after smpl current assertion:
+INFO #@(10,5):AS={Q(0):n == 1000}
+INFO #@(10,5):AS={P(0):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+TRACE (10,5):#####DeclStmt_end#####
+
+TRACE (10,5):&&&&&&DeclStmt_start&&&&&&
+TRACE (10,5):after smpl current assertion:
+INFO #@(10,5):AS={Q(0):n == 1000}
+INFO #@(10,5):AS={P(0):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+TRACE (10,5):#####DeclStmt_end#####
+
+TRACE (18,5):&&&&&&ForStmt_start&&&&&&
+TRACE (18,5):执行普通语句赋值规则
+TRACE (18,5):i == 1
+TRACE (18,5):产生的替换是i到%1i
+TRACE (18,5):赋值语句检查开始
+TRACE (18,5):赋值语句检查结束
+TRACE (18,5):Constrait_Assertion_Unfolder Begin
+TRACE (18,5):Constrait_Assertion_Unfolder Finished
+TRACE (18,5):Task before Hoare Assignment Rule Finished#######
+TRACE (18,5):过度展开后的断言：
+TRACE (18,5):n == 1000
+TRACE (18,5):等式替换前：i == 1
+TRACE (18,5):等式替换后：i == 1
+TRACE (18,5):CPV-C:assertion1 ==> assertion2:
+INFO #@(18,5):AS={Q(0):n == 1000 && i == 1}
+INFO #@(18,5):AS={P(0):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(18,5):VC={==>}
+INFO #@(18,5):AS={Q(0):n == 1000 && i == 1 && \length(a) == n}
+INFO #@(18,5):AS={P(0):\true }
+INFO #@(18,5):AS={Q(1):
+    1 < i && i < n && n == 1000 && \length(a) == n && 
+    (\forall integer !k:[0..i-1].a[!k] <= a[!k+1]) }
+
+INFO #@(18,5):AS={P(1):\true }
+INFO #@(18,5):AS={Q(2):n == 1000 && i == n && \length(a) == n && (\forall integer !k:[0..i-2].a[!k] <= a[!k+1])}
+INFO #@(18,5):AS={P(2):\true }
+TRACE (18,5):InterfaceOfZ3::Z3_CorrectnessProof:
+INFO #@(18,5):VC={CPV - C:Call Z3:
+    i == 1 && n == 1000 && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) 
+ ==>
+    i == 1 && n == n && n == 1000 
+  ||
+    1 < i && i < n && n == n && n == 1000 && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+  ||
+    i == n && n == n && n == 1000 && 
+    (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(18,5):Z3={VC got from CPVCaculator :
+n == 1000 && i == 1 && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) ==> n == 1000 && i == 1 && n == n || n == 1000 && 1 < i && i < n && n == n && (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) || n == 1000 && i == n && n == n && (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1])}
+INFO #@(18,5):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc0.smt2}
+INFO #@(18,5):VR={CPV-C:Loop Entry(Valid)}
+INFO #@(18,5):AS={loopInvariant:}
+INFO #@(18,5):AS={Q(0):n == 1000 && i == 1}
+INFO #@(18,5):AS={P(0):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(18,5):AS={Q(1):n == 1000 && 1 < i && i < n && (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1])}
+INFO #@(18,5):AS={P(1):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(18,5):AS={Q(2):n == 1000 && i == n && (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1])}
+INFO #@(18,5):AS={P(2):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+TRACE (18,5):IOfZ3::CorrectnessProofForMinor:
+TRACE (18,5):CPV - C:Call Z3:
+    i < n && i == 1 && n == 1000 && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) 
+ ==>
+    \false 
+INFO #@(18,5):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc1.smt2}
+TRACE (18,5):IOfZ3::CorrectnessProofForMinor:
+TRACE (18,5):CPV - C:Call Z3:
+    1 < i && i < n && i < n && n == 1000 && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    \false 
+INFO #@(18,5):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc2.smt2}
+TRACE (18,5):IOfZ3::CorrectnessProofForMinor:
+TRACE (18,5):CPV - C:Call Z3:
+    i < n && i == n && n == 1000 && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1]) 
+ ==>
+    \false 
+INFO #@(18,5):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc3.smt2}
+TRACE (19,5):&&&&&&CompoundStmt_start&&&&&&
+TRACE (20,9):&&&&&&BinaryOperator_start&&&&&&
+TRACE (20,9):执行普通语句赋值规则
+TRACE (20,9):temp == a[i]
+TRACE (20,9):产生的替换是temp到%1temp
+TRACE (20,9):赋值语句检查开始
+TRACE (20,9):IOfZ3::CorrectnessProofForMinor:
+TRACE (20,9):CPV - C:Call Z3:
+    i < n && i == 1 && n == 1000 && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) 
+ ==>
+    i < n && i >= 0
+INFO #@(20,9):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc4.smt2}
+TRACE (20,9):IOfZ3::CorrectnessProofForMinor:
+TRACE (20,9):CPV - C:Call Z3:
+    1 < i && i < n && i < n && n == 1000 && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    i < n && i >= 0
+INFO #@(20,9):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc5.smt2}
+TRACE (20,9):赋值语句检查结束
+TRACE (20,9):Constrait_Assertion_Unfolder Begin
+TRACE (20,9):Constrait_Assertion_Unfolder Finished
+TRACE (20,9):Task before Hoare Assignment Rule Finished#######
+TRACE (20,9):过度展开后的断言：
+TRACE (20,9):n == 1000 && i == 1 && i < n
+TRACE (20,9):等式替换前：temp == ^a[i]
+TRACE (20,9):等式替换后：temp == ^a[i]
+TRACE (20,9):Constrait_Assertion_Unfolder Begin
+TRACE (20,9):Scan Array :\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]
+TRACE (20,9):Scan Array :^a[!k] <= ^a[!k+1]
+TRACE (20,9):Scan Array :^a[!k]
+TRACE (20,9):Scan Array :^a[!k+1]
+TRACE (20,9):Constrait_Assertion_Unfolder Finished
+TRACE (20,9):Task before Hoare Assignment Rule Finished#######
+TRACE (20,9):过度展开后的断言：
+TRACE (20,9):n == 1000 && 1 < i && i < n && (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) && i < n
+TRACE (20,9):等式替换前：temp == ^a[i]
+TRACE (20,9):等式替换后：temp == ^a[i]
+TRACE (20,9):after smpl current assertion:
+INFO #@(20,9):AS={Q(0):n == 1000 && i == 1 && i < n && temp == ^a[i]}
+INFO #@(20,9):AS={P(0):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(20,9):AS={Q(1):
+    1 < i && i < n && i < n && n == 1000 && temp == ^a[i] && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(20,9):AS={P(1):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+TRACE (20,9):#####BinaryOperator_end#####
+
+TRACE (36,9):&&&&&&ForStmt_start&&&&&&
+TRACE (36,9):执行普通语句赋值规则
+TRACE (36,9):j == i
+TRACE (36,9):产生的替换是j到%1j
+TRACE (36,9):赋值语句检查开始
+TRACE (36,9):赋值语句检查结束
+TRACE (36,9):Constrait_Assertion_Unfolder Begin
+TRACE (36,9):Constrait_Assertion_Unfolder Finished
+TRACE (36,9):Task before Hoare Assignment Rule Finished#######
+TRACE (36,9):过度展开后的断言：
+TRACE (36,9):n == 1000 && i == 1 && i < n && temp == ^a[i]
+TRACE (36,9):等式替换前：j == i
+TRACE (36,9):等式替换后：j == i
+TRACE (36,9):Constrait_Assertion_Unfolder Begin
+TRACE (36,9):Scan Array :\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]
+TRACE (36,9):Scan Array :^a[!k] <= ^a[!k+1]
+TRACE (36,9):Scan Array :^a[!k]
+TRACE (36,9):Scan Array :^a[!k+1]
+TRACE (36,9):Constrait_Assertion_Unfolder Finished
+TRACE (36,9):Task before Hoare Assignment Rule Finished#######
+TRACE (36,9):过度展开后的断言：
+TRACE (36,9):
+    1 < i && i < n && i < n && n == 1000 && temp == ^a[i] && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+
+TRACE (36,9):等式替换前：j == i
+TRACE (36,9):等式替换后：j == i
+TRACE (36,9):CPV-C:assertion1 ==> assertion2:
+INFO #@(36,9):AS={Q(0):n == 1000 && i == 1 && i < n && temp == ^a[i] && j == i}
+INFO #@(36,9):AS={P(0):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(36,9):AS={Q(1):
+    1 < i && i < n && i < n && j == i && n == 1000 && temp == ^a[i] && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(36,9):AS={P(1):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(36,9):VC={==>}
+INFO #@(36,9):AS={Q(0):n == 1000 && i == 1 && j == i && \length(a) == n}
+INFO #@(36,9):AS={P(0):\true }
+INFO #@(36,9):AS={Q(1):n == 1000 && i == 1 && j < i && \length(a) == n && a[0] == a[1]}
+INFO #@(36,9):AS={P(1):\true }
+INFO #@(36,9):AS={Q(2):
+    1 < i && i < n && j == i && n == 1000 && \length(a) == n && 
+    (\forall integer !k:[0..i-1].a[!k] <= a[!k+1]) }
+
+INFO #@(36,9):AS={P(2):\true }
+INFO #@(36,9):AS={Q(3):
+    1 < i && i < n && 0 < j && j < i && n == 1000 && \length(a) == n && 
+    (\forall integer !k:[j..i].a[!k] > temp) && 
+    (\forall integer !k:[0..j-1].a[!k] <= temp) && 
+    (\forall integer !k:[0..i-1].a[!k] <= a[!k+1]) }
+
+INFO #@(36,9):AS={P(3):\true }
+INFO #@(36,9):AS={Q(4):
+    1 < i && i < n && j == 0 && n == 1000 && a[0] == a[1] && \length(a) == n && 
+    (\forall integer !k:[1..i-1].a[!k] <= a[!k+1]) }
+
+INFO #@(36,9):AS={P(4):\true }
+TRACE (36,9):InterfaceOfZ3::Z3_CorrectnessProof:
+INFO #@(36,9):VC={CPV - C:Call Z3:
+    i < n && i == 1 && j == i && n == 1000 && temp == ^a[i] && a == \pointer(^a, n, 0) && 
+    ^a == \pointer(^a, n, 0) 
+ ==>
+    i == 1 && j == i && n == n && n == 1000 
+  ||
+    j < i && i == 1 && n == n && n == 1000 && ^a[0] == ^a[1] 
+  ||
+    1 < i && i < n && j == i && n == n && n == 1000 && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+  ||
+    1 < i && i < n && 0 < j && j < i && n == n && n == 1000 && 
+    (\forall integer !k:[j..i].^a[!k] > temp) && 
+    (\forall integer !k:[0..j-1].^a[!k] <= temp) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+  ||
+    1 < i && i < n && j == 0 && n == n && n == 1000 && ^a[0] == ^a[1] && 
+    (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(36,9):Z3={VC got from CPVCaculator :
+n == 1000 && i == 1 && i < n && temp == ^a[i] && j == i && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) ==> n == 1000 && i == 1 && j == i && n == n || n == 1000 && i == 1 && j < i && n == n && ^a[0] == ^a[1] || n == 1000 && 1 < i && i < n && j == i && n == n && (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) || n == 1000 && 1 < i && i < n && 0 < j && j < i && n == n && (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) && (\forall integer !k:[j..i].^a[!k] > temp) && (\forall integer !k:[0..j-1].^a[!k] <= temp) || n == 1000 && 1 < i && i < n && j == 0 && n == n && (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) && ^a[0] == ^a[1]}
+INFO #@(36,9):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc6.smt2}
+TRACE (36,9):InterfaceOfZ3::Z3_CorrectnessProof:
+INFO #@(36,9):VC={CPV - C:Call Z3:
+    1 < i && i < n && i < n && j == i && n == 1000 && temp == ^a[i] && a == \pointer(^a, n, 0) && 
+    ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    i == 1 && j == i && n == n && n == 1000 
+  ||
+    j < i && i == 1 && n == n && n == 1000 && ^a[0] == ^a[1] 
+  ||
+    1 < i && i < n && j == i && n == n && n == 1000 && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+  ||
+    1 < i && i < n && 0 < j && j < i && n == n && n == 1000 && 
+    (\forall integer !k:[j..i].^a[!k] > temp) && 
+    (\forall integer !k:[0..j-1].^a[!k] <= temp) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+  ||
+    1 < i && i < n && j == 0 && n == n && n == 1000 && ^a[0] == ^a[1] && 
+    (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(36,9):Z3={VC got from CPVCaculator :
+n == 1000 && 1 < i && i < n && (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) && i < n && temp == ^a[i] && j == i && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) ==> n == 1000 && i == 1 && j == i && n == n || n == 1000 && i == 1 && j < i && n == n && ^a[0] == ^a[1] || n == 1000 && 1 < i && i < n && j == i && n == n && (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) || n == 1000 && 1 < i && i < n && 0 < j && j < i && n == n && (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) && (\forall integer !k:[j..i].^a[!k] > temp) && (\forall integer !k:[0..j-1].^a[!k] <= temp) || n == 1000 && 1 < i && i < n && j == 0 && n == n && (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) && ^a[0] == ^a[1]}
+INFO #@(36,9):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc7.smt2}
+INFO #@(36,9):VR={CPV-C:Loop Entry(Valid)}
+INFO #@(36,9):AS={loopInvariant:}
+INFO #@(36,9):AS={Q(0):n == 1000 && i == 1 && j == i}
+INFO #@(36,9):AS={P(0):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(36,9):AS={Q(1):n == 1000 && i == 1 && j < i && ^a[0] == ^a[1]}
+INFO #@(36,9):AS={P(1):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(36,9):AS={Q(2):n == 1000 && 1 < i && i < n && j == i && (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1])}
+INFO #@(36,9):AS={P(2):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(36,9):AS={Q(3):
+    1 < i && i < n && 0 < j && j < i && n == 1000 && 
+    (\forall integer !k:[j..i].^a[!k] > temp) && 
+    (\forall integer !k:[0..j-1].^a[!k] <= temp) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(36,9):AS={P(3):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(36,9):AS={Q(4):
+    1 < i && i < n && j == 0 && n == 1000 && ^a[0] == ^a[1] && 
+    (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(36,9):AS={P(4):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+TRACE (36,9):IOfZ3::CorrectnessProofForMinor:
+TRACE (36,9):CPV - C:Call Z3:
+    j > 0 && i == 1 && j == i && n == 1000 && ^a[j-1] > temp && a == \pointer(^a, n, 0) && 
+    ^a == \pointer(^a, n, 0) 
+ ==>
+    \false 
+INFO #@(36,9):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc8.smt2}
+TRACE (36,9):IOfZ3::CorrectnessProofForMinor:
+TRACE (36,9):CPV - C:Call Z3:
+    j < i && j > 0 && i == 1 && n == 1000 && ^a[0] == ^a[1] && ^a[j-1] > temp && 
+    a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) 
+ ==>
+    \false 
+INFO #@(36,9):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc9.smt2}
+TRACE (36,9):IOfZ3::CorrectnessProofForMinor:
+TRACE (36,9):CPV - C:Call Z3:
+    1 < i && i < n && j > 0 && j == i && n == 1000 && ^a[j-1] > temp && a == \pointer(^a, n, 0) && 
+    ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    \false 
+INFO #@(36,9):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc10.smt2}
+TRACE (36,9):IOfZ3::CorrectnessProofForMinor:
+TRACE (36,9):CPV - C:Call Z3:
+    1 < i && i < n && 0 < j && j < i && j > 0 && n == 1000 && ^a[j-1] > temp && a == \pointer(^a, n, 0) && 
+    a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[j..i].^a[!k] > temp) && 
+    (\forall integer !k:[0..j-1].^a[!k] <= temp) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    \false 
+INFO #@(36,9):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc11.smt2}
+TRACE (36,9):IOfZ3::CorrectnessProofForMinor:
+TRACE (36,9):CPV - C:Call Z3:
+    1 < i && i < n && j > 0 && j == 0 && n == 1000 && ^a[0] == ^a[1] && ^a[j-1] > temp && 
+    a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    \false 
+INFO #@(36,9):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc12.smt2}
+TRACE (37,9):&&&&&&CompoundStmt_start&&&&&&
+TRACE (38,13):&&&&&&BinaryOperator_start&&&&&&
+TRACE (38,13):执行普通语句赋值规则
+TRACE (38,13):a[j] == a[j-1]
+TRACE (38,13):产生的替换是a[j]到%1a<j>
+TRACE (38,13):赋值语句检查开始
+TRACE (38,13):IOfZ3::CorrectnessProofForMinor:
+TRACE (38,13):CPV - C:Call Z3:
+    j > 0 && i == 1 && j == i && n == 1000 && ^a[j-1] > temp && a == \pointer(^a, n, 0) && 
+    ^a == \pointer(^a, n, 0) 
+ ==>
+    j < n && j >= 0 && j-1 < n && j-1 >= 0
+INFO #@(38,13):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc13.smt2}
+TRACE (38,13):IOfZ3::CorrectnessProofForMinor:
+TRACE (38,13):CPV - C:Call Z3:
+    1 < i && i < n && j > 0 && j == i && n == 1000 && ^a[j-1] > temp && a == \pointer(^a, n, 0) && 
+    ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    j < n && j >= 0 && j-1 < n && j-1 >= 0
+INFO #@(38,13):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc14.smt2}
+TRACE (38,13):赋值语句检查结束
+TRACE (38,13):Constrait_Assertion_Unfolder Begin
+TRACE (38,13):Constrait_Assertion_Unfolder Finished
+TRACE (38,13):Task before Hoare Assignment Rule Finished#######
+TRACE (38,13):过度展开后的断言：
+TRACE (38,13):n == 1000 && i == 1 && j == i && j > 0 && ^a[j-1] > temp
+TRACE (38,13):等式替换前：^a[j] == ^a[j-1]
+TRACE (38,13):等式替换后：^a[j] == ^a[j-1]
+TRACE (38,13):Constrait_Assertion_Unfolder Begin
+TRACE (38,13):Scan Array :\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]
+TRACE (38,13):Scan Array :^a[!k] <= ^a[!k+1]
+TRACE (38,13):Scan Array :^a[!k]
+TRACE (38,13):^a[!k]
+TRACE (38,13):^a[j]
+TRACE (38,13):Scan Array :^a[!k+1]
+TRACE (38,13):^a[!k+1]
+TRACE (38,13):^a[j]
+TRACE (38,13):Constrait_Assertion_Unfolder Finished
+TRACE (38,13):Task before Hoare Assignment Rule Finished#######
+TRACE (38,13):过度展开后的断言：
+TRACE (38,13):
+    1 < i && i < n && j > 0 && j == i && n == 1000 && ^a[j-1] > temp && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+
+TRACE (38,13):等式替换前：^a[j] == ^a[j-1]
+TRACE (38,13):等式替换后：^a[j] == ^a[j-1]
+TRACE (38,13):after smpl current assertion:
+INFO #@(38,13):AS={Q(0):n == 1000 && i == 1 && j == i && j > 0 && ^a[j-1] > temp && ^a[j] == ^a[j-1]}
+INFO #@(38,13):AS={P(0):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(38,13):AS={Q(1):
+    1 < i && i < n && j > 0 && j == i && n == 1000 && ^a[j-1] > temp && ^a[j] == ^a[j-1] && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(38,13):AS={P(1):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+TRACE (38,13):#####BinaryOperator_end#####
+
+TRACE (39,9):after smpl current assertion:
+INFO #@(39,9):VC={May produce an empty gragh if CompoundStmt contain a exit() stmt}
+INFO #@(39,9):AS={Q(0):n == 1000 && i == 1 && j == i && j > 0 && ^a[j-1] > temp && ^a[j] == ^a[j-1]}
+INFO #@(39,9):AS={P(0):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(39,9):AS={Q(1):
+    1 < i && i < n && j > 0 && j == i && n == 1000 && ^a[j-1] > temp && ^a[j] == ^a[j-1] && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(39,9):AS={P(1):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+TRACE (39,9):#####CompoundStmt_end#####
+
+TRACE (36,48):&&&&&&BinaryOperator_start&&&&&&
+TRACE (36,48):执行普通语句赋值规则
+TRACE (36,48):j == j-1
+TRACE (36,48):产生的替换是j到%2j
+TRACE (36,48):赋值语句检查开始
+TRACE (36,48):赋值语句检查结束
+TRACE (36,48):Constrait_Assertion_Unfolder Begin
+TRACE (36,48):Constrait_Assertion_Unfolder Finished
+TRACE (36,48):Task before Hoare Assignment Rule Finished#######
+TRACE (36,48):过度展开后的断言：
+TRACE (36,48):n == 1000 && i == 1 && j == i && j > 0 && ^a[j-1] > temp && ^a[j] == ^a[j-1]
+TRACE (36,48):等式替换前：j == j-1
+TRACE (36,48):等式替换后：j == %2j-1
+TRACE (36,48):Constrait_Assertion_Unfolder Begin
+TRACE (36,48):Scan Array :\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]
+TRACE (36,48):Scan Array :^a[!k] <= ^a[!k+1]
+TRACE (36,48):Scan Array :^a[!k]
+TRACE (36,48):Scan Array :^a[!k+1]
+TRACE (36,48):Constrait_Assertion_Unfolder Finished
+TRACE (36,48):Task before Hoare Assignment Rule Finished#######
+TRACE (36,48):过度展开后的断言：
+TRACE (36,48):
+    1 < i && i < n && j > 0 && j == i && n == 1000 && ^a[j-1] > temp && ^a[j] == ^a[j-1] && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+
+TRACE (36,48):等式替换前：j == j-1
+TRACE (36,48):等式替换后：j == %2j-1
+TRACE (36,48):after smpl current assertion:
+INFO #@(36,48):AS={Q(0):
+    i == 1 && %2j > 0 && %2j == i && n == 1000 && j == %2j-1 && ^a[%2j-1] > temp && 
+    ^a[%2j] == ^a[%2j-1] }
+
+INFO #@(36,48):AS={P(0):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(36,48):AS={Q(1):
+    1 < i && i < n && %2j > 0 && %2j == i && n == 1000 && j == %2j-1 && ^a[%2j-1] > temp && 
+    ^a[%2j] == ^a[%2j-1] && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(36,48):AS={P(1):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+TRACE (36,48):#####BinaryOperator_end#####
+
+TRACE (36,48):CPV-C:assertion1 ==> assertion2:
+INFO #@(36,48):AS={Q(0):
+    i == 1 && %2j > 0 && %2j == i && n == 1000 && j == %2j-1 && ^a[%2j-1] > temp && 
+    ^a[%2j] == ^a[%2j-1] }
+
+INFO #@(36,48):AS={P(0):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(36,48):AS={Q(1):
+    1 < i && i < n && %2j > 0 && %2j == i && n == 1000 && j == %2j-1 && ^a[%2j-1] > temp && 
+    ^a[%2j] == ^a[%2j-1] && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(36,48):AS={P(1):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(36,48):VC={==>}
+INFO #@(36,48):AS={Q(0):n == 1000 && i == 1 && j == i && \length(a) == n}
+INFO #@(36,48):AS={P(0):\true }
+INFO #@(36,48):AS={Q(1):n == 1000 && i == 1 && j < i && \length(a) == n && a[0] == a[1]}
+INFO #@(36,48):AS={P(1):\true }
+INFO #@(36,48):AS={Q(2):
+    1 < i && i < n && j == i && n == 1000 && \length(a) == n && 
+    (\forall integer !k:[0..i-1].a[!k] <= a[!k+1]) }
+
+INFO #@(36,48):AS={P(2):\true }
+INFO #@(36,48):AS={Q(3):
+    1 < i && i < n && 0 < j && j < i && n == 1000 && \length(a) == n && 
+    (\forall integer !k:[j..i].a[!k] > temp) && 
+    (\forall integer !k:[0..j-1].a[!k] <= temp) && 
+    (\forall integer !k:[0..i-1].a[!k] <= a[!k+1]) }
+
+INFO #@(36,48):AS={P(3):\true }
+INFO #@(36,48):AS={Q(4):
+    1 < i && i < n && j == 0 && n == 1000 && a[0] == a[1] && \length(a) == n && 
+    (\forall integer !k:[1..i-1].a[!k] <= a[!k+1]) }
+
+INFO #@(36,48):AS={P(4):\true }
+TRACE (36,48):InterfaceOfZ3::Z3_CorrectnessProof:
+INFO #@(36,48):VC={CPV - C:Call Z3:
+    i == 1 && %2j > 0 && %2j == i && n == 1000 && j == %2j-1 && ^a[%2j-1] > temp && 
+    ^a[%2j] == ^a[%2j-1] && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) 
+ ==>
+    i == 1 && j == i && n == n && n == 1000 
+  ||
+    j < i && i == 1 && n == n && n == 1000 && ^a[0] == ^a[1] 
+  ||
+    1 < i && i < n && j == i && n == n && n == 1000 && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+  ||
+    1 < i && i < n && 0 < j && j < i && n == n && n == 1000 && 
+    (\forall integer !k:[j..i].^a[!k] > temp) && 
+    (\forall integer !k:[0..j-1].^a[!k] <= temp) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+  ||
+    1 < i && i < n && j == 0 && n == n && n == 1000 && ^a[0] == ^a[1] && 
+    (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(36,48):Z3={VC got from CPVCaculator :
+n == 1000 && i == 1 && %2j == i && %2j > 0 && ^a[%2j-1] > temp && ^a[%2j] == ^a[%2j-1] && j == %2j-1 && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) ==> n == 1000 && i == 1 && j == i && n == n || n == 1000 && i == 1 && j < i && n == n && ^a[0] == ^a[1] || n == 1000 && 1 < i && i < n && j == i && n == n && (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) || n == 1000 && 1 < i && i < n && 0 < j && j < i && n == n && (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) && (\forall integer !k:[j..i].^a[!k] > temp) && (\forall integer !k:[0..j-1].^a[!k] <= temp) || n == 1000 && 1 < i && i < n && j == 0 && n == n && (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) && ^a[0] == ^a[1]}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc15.smt2}
+TRACE (36,48):InterfaceOfZ3::Z3_CorrectnessProof:
+INFO #@(36,48):VC={CPV - C:Call Z3:
+    1 < i && i < n && %2j > 0 && %2j == i && n == 1000 && j == %2j-1 && ^a[%2j-1] > temp && 
+    ^a[%2j] == ^a[%2j-1] && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    i == 1 && j == i && n == n && n == 1000 
+  ||
+    j < i && i == 1 && n == n && n == 1000 && ^a[0] == ^a[1] 
+  ||
+    1 < i && i < n && j == i && n == n && n == 1000 && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+  ||
+    1 < i && i < n && 0 < j && j < i && n == n && n == 1000 && 
+    (\forall integer !k:[j..i].^a[!k] > temp) && 
+    (\forall integer !k:[0..j-1].^a[!k] <= temp) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+  ||
+    1 < i && i < n && j == 0 && n == n && n == 1000 && ^a[0] == ^a[1] && 
+    (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(36,48):Z3={VC got from CPVCaculator :
+n == 1000 && 1 < i && i < n && %2j == i && (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) && %2j > 0 && ^a[%2j-1] > temp && ^a[%2j] == ^a[%2j-1] && j == %2j-1 && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) ==> n == 1000 && i == 1 && j == i && n == n || n == 1000 && i == 1 && j < i && n == n && ^a[0] == ^a[1] || n == 1000 && 1 < i && i < n && j == i && n == n && (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) || n == 1000 && 1 < i && i < n && 0 < j && j < i && n == n && (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) && (\forall integer !k:[j..i].^a[!k] > temp) && (\forall integer !k:[0..j-1].^a[!k] <= temp) || n == 1000 && 1 < i && i < n && j == 0 && n == n && (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) && ^a[0] == ^a[1]}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc16.smt2}
+INFO #@(36,48):Z3={Prove Invalid!}
+INFO #@(36,48):Z3={Analyse ill VC [start]}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc17.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc18.smt2}
+INFO #@(36,48):Z3={Prove Invalid!}
+INFO #@(36,48):Z3={Ill smallVC's consequence: i == 1,		第1个分支}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc19.smt2}
+INFO #@(36,48):Z3={Prove Invalid!}
+INFO #@(36,48):Z3={Ill smallVC's consequence: j == i,		第1个分支}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc20.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc21.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc22.smt2}
+INFO #@(36,48):Z3={Prove Invalid!}
+INFO #@(36,48):Z3={Ill smallVC's consequence: i == 1,		第2个分支}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc23.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc24.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc25.smt2}
+INFO #@(36,48):Z3={Prove Invalid!}
+INFO #@(36,48):Z3={Ill smallVC's consequence: ^a[0] == ^a[1],		第2个分支}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc26.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc27.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc28.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc29.smt2}
+INFO #@(36,48):Z3={Prove Invalid!}
+INFO #@(36,48):Z3={Ill smallVC's consequence: j == i,		第3个分支}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc30.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc31.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc32.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc33.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc34.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc35.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc36.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc37.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc38.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc39.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc40.smt2}
+INFO #@(36,48):Z3={Prove Invalid!}
+INFO #@(36,48):Z3={Ill smallVC's consequence: \forall integer !k:[0..j-1].^a[!k] <= temp,		第4个分支}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc41.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc42.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc43.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc44.smt2}
+INFO #@(36,48):Z3={Prove Invalid!}
+INFO #@(36,48):Z3={Ill smallVC's consequence: j == 0,		第5个分支}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc45.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc46.smt2}
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc47.smt2}
+INFO #@(36,48):Z3={Prove Invalid!}
+INFO #@(36,48):Z3={Ill smallVC's consequence: ^a[0] == ^a[1],		第5个分支}
+INFO #@(36,48):Z3={Analyse ill VC [end]}
+INFO #@(36,48):VR={CPV-C:Q(1):(Invalid)}
+INFO #@(36,48):VR={CPV-C:Loop Exits(Invalid)}
+TRACE (36,48):IOfZ3::CorrectnessProofForMinor:
+TRACE (36,48):CPV - C:Call Z3:
+    i == 1 && j == i && j <= 0 && n == 1000 && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) 
+ ==>
+    \false 
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc48.smt2}
+TRACE (36,48):IOfZ3::CorrectnessProofForMinor:
+TRACE (36,48):CPV - C:Call Z3:
+    j < i && i == 1 && j <= 0 && n == 1000 && ^a[0] == ^a[1] && a == \pointer(^a, n, 0) && 
+    ^a == \pointer(^a, n, 0) 
+ ==>
+    \false 
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc49.smt2}
+TRACE (36,48):IOfZ3::CorrectnessProofForMinor:
+TRACE (36,48):CPV - C:Call Z3:
+    1 < i && i < n && j == i && j <= 0 && n == 1000 && a == \pointer(^a, n, 0) && 
+    ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    \false 
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc50.smt2}
+TRACE (36,48):IOfZ3::CorrectnessProofForMinor:
+TRACE (36,48):CPV - C:Call Z3:
+    1 < i && i < n && 0 < j && j < i && j <= 0 && n == 1000 && a == \pointer(^a, n, 0) && 
+    ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[j..i].^a[!k] > temp) && 
+    (\forall integer !k:[0..j-1].^a[!k] <= temp) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    \false 
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc51.smt2}
+TRACE (36,48):IOfZ3::CorrectnessProofForMinor:
+TRACE (36,48):CPV - C:Call Z3:
+    1 < i && i < n && j == 0 && j <= 0 && n == 1000 && ^a[0] == ^a[1] && a == \pointer(^a, n, 0) && 
+    ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    \false 
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc52.smt2}
+TRACE (36,48):IOfZ3::CorrectnessProofForMinor:
+TRACE (36,48):CPV - C:Call Z3:
+    i == 1 && j == i && n == 1000 && ^a[j-1] <= temp && a == \pointer(^a, n, 0) && 
+    ^a == \pointer(^a, n, 0) 
+ ==>
+    \false 
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc53.smt2}
+TRACE (36,48):IOfZ3::CorrectnessProofForMinor:
+TRACE (36,48):CPV - C:Call Z3:
+    j < i && i == 1 && n == 1000 && ^a[0] == ^a[1] && ^a[j-1] <= temp && a == \pointer(^a, n, 0) && 
+    ^a == \pointer(^a, n, 0) 
+ ==>
+    \false 
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc54.smt2}
+TRACE (36,48):IOfZ3::CorrectnessProofForMinor:
+TRACE (36,48):CPV - C:Call Z3:
+    1 < i && i < n && j == i && n == 1000 && ^a[j-1] <= temp && a == \pointer(^a, n, 0) && 
+    ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    \false 
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc55.smt2}
+TRACE (36,48):IOfZ3::CorrectnessProofForMinor:
+TRACE (36,48):CPV - C:Call Z3:
+    1 < i && i < n && 0 < j && j < i && n == 1000 && ^a[j-1] <= temp && a == \pointer(^a, n, 0) && 
+    ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[j..i].^a[!k] > temp) && 
+    (\forall integer !k:[0..j-1].^a[!k] <= temp) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    \false 
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc56.smt2}
+TRACE (36,48):IOfZ3::CorrectnessProofForMinor:
+TRACE (36,48):CPV - C:Call Z3:
+    1 < i && i < n && j == 0 && n == 1000 && ^a[0] == ^a[1] && ^a[j-1] <= temp && 
+    a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    \false 
+INFO #@(36,48):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc57.smt2}
+TRACE (36,48):after smpl current assertion:
+INFO #@(36,48):AS={Q(0):n == 1000 && i == 1 && j < i && ^a[0] == ^a[1] && j <= 0}
+INFO #@(36,48):AS={P(0):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(36,48):AS={Q(1):
+    1 < i && i < n && j == 0 && j <= 0 && n == 1000 && ^a[0] == ^a[1] && 
+    (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(36,48):AS={P(1):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(36,48):AS={Q(2):n == 1000 && i == 1 && j == i && ^a[j-1] <= temp}
+INFO #@(36,48):AS={P(2):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(36,48):AS={Q(3):n == 1000 && i == 1 && j < i && ^a[0] == ^a[1] && ^a[j-1] <= temp}
+INFO #@(36,48):AS={P(3):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(36,48):AS={Q(4):
+    1 < i && i < n && j == i && n == 1000 && ^a[j-1] <= temp && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(36,48):AS={P(4):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(36,48):AS={Q(5):
+    1 < i && i < n && 0 < j && j < i && n == 1000 && ^a[j-1] <= temp && 
+    (\forall integer !k:[j..i].^a[!k] > temp) && 
+    (\forall integer !k:[0..j-1].^a[!k] <= temp) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(36,48):AS={P(5):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(36,48):AS={Q(6):
+    1 < i && i < n && j == 0 && n == 1000 && ^a[0] == ^a[1] && ^a[j-1] <= temp && 
+    (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(36,48):AS={P(6):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+TRACE (36,48):#####ForStmt_end#####
+
+TRACE (40,9):&&&&&&BinaryOperator_start&&&&&&
+TRACE (40,9):执行普通语句赋值规则
+TRACE (40,9):a[j] == temp
+TRACE (40,9):产生的替换是a[j]到%2a<j>
+TRACE (40,9):赋值语句检查开始
+TRACE (40,9):IOfZ3::CorrectnessProofForMinor:
+TRACE (40,9):CPV - C:Call Z3:
+    j < i && i == 1 && j <= 0 && n == 1000 && ^a[0] == ^a[1] && a == \pointer(^a, n, 0) && 
+    ^a == \pointer(^a, n, 0) 
+ ==>
+    j < n && j >= 0
+INFO #@(40,9):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc58.smt2}
+INFO #@(40,9):VE={error:Access Violation!!!}
+TRACE (40,9):IOfZ3::CorrectnessProofForMinor:
+TRACE (40,9):CPV - C:Call Z3:
+    1 < i && i < n && j == 0 && j <= 0 && n == 1000 && ^a[0] == ^a[1] && a == \pointer(^a, n, 0) && 
+    ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    j < n && j >= 0
+INFO #@(40,9):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc59.smt2}
+TRACE (40,9):IOfZ3::CorrectnessProofForMinor:
+TRACE (40,9):CPV - C:Call Z3:
+    i == 1 && j == i && n == 1000 && ^a[j-1] <= temp && a == \pointer(^a, n, 0) && 
+    ^a == \pointer(^a, n, 0) 
+ ==>
+    j < n && j >= 0
+INFO #@(40,9):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc60.smt2}
+TRACE (40,9):IOfZ3::CorrectnessProofForMinor:
+TRACE (40,9):CPV - C:Call Z3:
+    j < i && i == 1 && n == 1000 && ^a[0] == ^a[1] && ^a[j-1] <= temp && a == \pointer(^a, n, 0) && 
+    ^a == \pointer(^a, n, 0) 
+ ==>
+    j < n && j >= 0
+INFO #@(40,9):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc61.smt2}
+INFO #@(40,9):VE={error:Access Violation!!!}
+TRACE (40,9):IOfZ3::CorrectnessProofForMinor:
+TRACE (40,9):CPV - C:Call Z3:
+    1 < i && i < n && j == i && n == 1000 && ^a[j-1] <= temp && a == \pointer(^a, n, 0) && 
+    ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    j < n && j >= 0
+INFO #@(40,9):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc62.smt2}
+TRACE (40,9):IOfZ3::CorrectnessProofForMinor:
+TRACE (40,9):CPV - C:Call Z3:
+    1 < i && i < n && 0 < j && j < i && n == 1000 && ^a[j-1] <= temp && a == \pointer(^a, n, 0) && 
+    ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[j..i].^a[!k] > temp) && 
+    (\forall integer !k:[0..j-1].^a[!k] <= temp) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    j < n && j >= 0
+INFO #@(40,9):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc63.smt2}
+TRACE (40,9):IOfZ3::CorrectnessProofForMinor:
+TRACE (40,9):CPV - C:Call Z3:
+    1 < i && i < n && j == 0 && n == 1000 && ^a[0] == ^a[1] && ^a[j-1] <= temp && 
+    a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    j < n && j >= 0
+INFO #@(40,9):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc64.smt2}
+TRACE (40,9):赋值语句检查结束
+TRACE (40,9):Constrait_Assertion_Unfolder Begin
+TRACE (40,9):Constrait_Assertion_Unfolder Finished
+TRACE (40,9):Task before Hoare Assignment Rule Finished#######
+TRACE (40,9):过度展开后的断言：
+TRACE (40,9):n == 1000 && i == 1 && j < i && ^a[0] == ^a[1] && j <= 0
+TRACE (40,9):等式替换前：^a[j] == temp
+TRACE (40,9):等式替换后：^a[j] == temp
+TRACE (40,9):Constrait_Assertion_Unfolder Begin
+TRACE (40,9):Scan Array :\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]
+TRACE (40,9):Scan Array :^a[!k] <= ^a[!k+1]
+TRACE (40,9):Scan Array :^a[!k]
+TRACE (40,9):^a[!k]
+TRACE (40,9):^a[j]
+TRACE (40,9):Scan Array :^a[!k+1]
+TRACE (40,9):^a[!k+1]
+TRACE (40,9):^a[j]
+TRACE (40,9):Constrait_Assertion_Unfolder Finished
+TRACE (40,9):Task before Hoare Assignment Rule Finished#######
+TRACE (40,9):过度展开后的断言：
+TRACE (40,9):
+    1 < i && i < n && j == 0 && j <= 0 && n == 1000 && ^a[0] == ^a[1] && 
+    (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) 
+
+TRACE (40,9):等式替换前：^a[j] == temp
+TRACE (40,9):等式替换后：^a[j] == temp
+TRACE (40,9):Constrait_Assertion_Unfolder Begin
+TRACE (40,9):Constrait_Assertion_Unfolder Finished
+TRACE (40,9):Task before Hoare Assignment Rule Finished#######
+TRACE (40,9):过度展开后的断言：
+TRACE (40,9):n == 1000 && i == 1 && j == i && ^a[j-1] <= temp
+TRACE (40,9):等式替换前：^a[j] == temp
+TRACE (40,9):等式替换后：^a[j] == temp
+TRACE (40,9):Constrait_Assertion_Unfolder Begin
+TRACE (40,9):Constrait_Assertion_Unfolder Finished
+TRACE (40,9):Task before Hoare Assignment Rule Finished#######
+TRACE (40,9):过度展开后的断言：
+TRACE (40,9):n == 1000 && i == 1 && j < i && ^a[0] == ^a[1] && ^a[j-1] <= temp
+TRACE (40,9):等式替换前：^a[j] == temp
+TRACE (40,9):等式替换后：^a[j] == temp
+TRACE (40,9):Constrait_Assertion_Unfolder Begin
+TRACE (40,9):Scan Array :\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]
+TRACE (40,9):Scan Array :^a[!k] <= ^a[!k+1]
+TRACE (40,9):Scan Array :^a[!k]
+TRACE (40,9):^a[!k]
+TRACE (40,9):^a[j]
+TRACE (40,9):Scan Array :^a[!k+1]
+TRACE (40,9):^a[!k+1]
+TRACE (40,9):^a[j]
+TRACE (40,9):Constrait_Assertion_Unfolder Finished
+TRACE (40,9):Task before Hoare Assignment Rule Finished#######
+TRACE (40,9):过度展开后的断言：
+TRACE (40,9):
+    1 < i && i < n && j == i && n == 1000 && ^a[j-1] <= temp && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+
+TRACE (40,9):等式替换前：^a[j] == temp
+TRACE (40,9):等式替换后：^a[j] == temp
+TRACE (40,9):Constrait_Assertion_Unfolder Begin
+TRACE (40,9):Scan Array :\forall integer !k:[0..j-1].^a[!k] <= temp
+TRACE (40,9):Scan Array :^a[!k] <= temp
+TRACE (40,9):Scan Array :^a[!k]
+TRACE (40,9):^a[!k]
+TRACE (40,9):^a[j]
+TRACE (40,9):Scan Array :temp
+TRACE (40,9):Scan Array :\forall integer !k:[j..i].^a[!k] > temp
+TRACE (40,9):Scan Array :^a[!k] > temp
+TRACE (40,9):Scan Array :^a[!k]
+TRACE (40,9):^a[!k]
+TRACE (40,9):^a[j]
+TRACE (40,9):Scan Array :temp
+TRACE (40,9):Scan Array :\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]
+TRACE (40,9):Scan Array :^a[!k] <= ^a[!k+1]
+TRACE (40,9):Scan Array :^a[!k]
+TRACE (40,9):^a[!k]
+TRACE (40,9):^a[j]
+TRACE (40,9):Scan Array :^a[!k+1]
+TRACE (40,9):^a[!k+1]
+TRACE (40,9):^a[j]
+TRACE (40,9):Constrait_Assertion_Unfolder Finished
+TRACE (40,9):Task before Hoare Assignment Rule Finished#######
+TRACE (40,9):过度展开后的断言：
+TRACE (40,9):
+    1 < i && i < n && 0 < j && j < i && n == 1000 && ^a[j-1] <= temp && 
+    (\forall integer !k:[j..i].^a[!k] > temp) && 
+    (\forall integer !k:[0..j-1].^a[!k] <= temp) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+
+TRACE (40,9):等式替换前：^a[j] == temp
+TRACE (40,9):等式替换后：^a[j] == temp
+TRACE (40,9):Constrait_Assertion_Unfolder Begin
+TRACE (40,9):Scan Array :\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]
+TRACE (40,9):Scan Array :^a[!k] <= ^a[!k+1]
+TRACE (40,9):Scan Array :^a[!k]
+TRACE (40,9):^a[!k]
+TRACE (40,9):^a[j]
+TRACE (40,9):Scan Array :^a[!k+1]
+TRACE (40,9):^a[!k+1]
+TRACE (40,9):^a[j]
+TRACE (40,9):Constrait_Assertion_Unfolder Finished
+TRACE (40,9):Task before Hoare Assignment Rule Finished#######
+TRACE (40,9):过度展开后的断言：
+TRACE (40,9):
+    1 < i && i < n && j == 0 && n == 1000 && ^a[0] == ^a[1] && ^a[j-1] <= temp && 
+    (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) 
+
+TRACE (40,9):等式替换前：^a[j] == temp
+TRACE (40,9):等式替换后：^a[j] == temp
+TRACE (40,9):after smpl current assertion:
+INFO #@(40,9):AS={Q(0):n == 1000 && i == 1 && j < i && ^a[0] == ^a[1] && j <= 0 && ^a[j] == temp}
+INFO #@(40,9):AS={P(0):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(40,9):AS={Q(1):
+    1 < i && i < n && j == 0 && j <= 0 && n == 1000 && ^a[j] == temp && ^a[0] == ^a[1] && 
+    (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(40,9):AS={P(1):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(40,9):AS={Q(2):n == 1000 && i == 1 && j == i && ^a[j-1] <= temp && ^a[j] == temp}
+INFO #@(40,9):AS={P(2):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(40,9):AS={Q(3):n == 1000 && i == 1 && j < i && ^a[0] == ^a[1] && ^a[j-1] <= temp && ^a[j] == temp}
+INFO #@(40,9):AS={P(3):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(40,9):AS={Q(4):
+    1 < i && i < n && j == i && n == 1000 && ^a[j] == temp && ^a[j-1] <= temp && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(40,9):AS={P(4):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(40,9):AS={Q(5):
+    1 < i && i < n && 0 < j && j < i && n == 1000 && ^a[j] == temp && ^a[j-1] <= temp && 
+    (\forall integer !k:[j..i].^a[!k] > temp) && 
+    (\forall integer !k:[0..j-1].^a[!k] <= temp) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(40,9):AS={P(5):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(40,9):AS={Q(6):
+    1 < i && i < n && j == 0 && n == 1000 && ^a[j] == temp && ^a[0] == ^a[1] && ^a[j-1] <= temp && 
+    (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(40,9):AS={P(6):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+TRACE (40,9):#####BinaryOperator_end#####
+
+TRACE (41,5):after smpl current assertion:
+INFO #@(41,5):VC={May produce an empty gragh if CompoundStmt contain a exit() stmt}
+INFO #@(41,5):AS={Q(0):n == 1000 && i == 1 && j < i && ^a[0] == ^a[1] && j <= 0 && ^a[j] == temp}
+INFO #@(41,5):AS={P(0):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(41,5):AS={Q(1):
+    1 < i && i < n && j == 0 && j <= 0 && n == 1000 && ^a[j] == temp && ^a[0] == ^a[1] && 
+    (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(41,5):AS={P(1):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(41,5):AS={Q(2):n == 1000 && i == 1 && j == i && ^a[j-1] <= temp && ^a[j] == temp}
+INFO #@(41,5):AS={P(2):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(41,5):AS={Q(3):n == 1000 && i == 1 && j < i && ^a[0] == ^a[1] && ^a[j-1] <= temp && ^a[j] == temp}
+INFO #@(41,5):AS={P(3):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(41,5):AS={Q(4):
+    1 < i && i < n && j == i && n == 1000 && ^a[j] == temp && ^a[j-1] <= temp && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(41,5):AS={P(4):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(41,5):AS={Q(5):
+    1 < i && i < n && 0 < j && j < i && n == 1000 && ^a[j] == temp && ^a[j-1] <= temp && 
+    (\forall integer !k:[j..i].^a[!k] > temp) && 
+    (\forall integer !k:[0..j-1].^a[!k] <= temp) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(41,5):AS={P(5):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(41,5):AS={Q(6):
+    1 < i && i < n && j == 0 && n == 1000 && ^a[j] == temp && ^a[0] == ^a[1] && ^a[j-1] <= temp && 
+    (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(41,5):AS={P(6):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+TRACE (41,5):#####CompoundStmt_end#####
+
+TRACE (18,24):&&&&&&BinaryOperator_start&&&&&&
+TRACE (18,24):执行普通语句赋值规则
+TRACE (18,24):i == i+1
+TRACE (18,24):产生的替换是i到%2i
+TRACE (18,24):赋值语句检查开始
+TRACE (18,24):赋值语句检查结束
+TRACE (18,24):Constrait_Assertion_Unfolder Begin
+TRACE (18,24):Constrait_Assertion_Unfolder Finished
+TRACE (18,24):Task before Hoare Assignment Rule Finished#######
+TRACE (18,24):过度展开后的断言：
+TRACE (18,24):n == 1000 && i == 1 && j < i && ^a[0] == ^a[1] && j <= 0 && ^a[j] == temp
+TRACE (18,24):等式替换前：i == i+1
+TRACE (18,24):等式替换后：i == %2i+1
+TRACE (18,24):Constrait_Assertion_Unfolder Begin
+TRACE (18,24):Scan Array :\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]
+TRACE (18,24):Scan Array :^a[!k] <= ^a[!k+1]
+TRACE (18,24):Scan Array :^a[!k]
+TRACE (18,24):Scan Array :^a[!k+1]
+TRACE (18,24):Constrait_Assertion_Unfolder Finished
+TRACE (18,24):Task before Hoare Assignment Rule Finished#######
+TRACE (18,24):过度展开后的断言：
+TRACE (18,24):
+    1 < i && i < n && j == 0 && j <= 0 && n == 1000 && ^a[j] == temp && ^a[0] == ^a[1] && 
+    (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) 
+
+TRACE (18,24):等式替换前：i == i+1
+TRACE (18,24):等式替换后：i == %2i+1
+TRACE (18,24):Constrait_Assertion_Unfolder Begin
+TRACE (18,24):Constrait_Assertion_Unfolder Finished
+TRACE (18,24):Task before Hoare Assignment Rule Finished#######
+TRACE (18,24):过度展开后的断言：
+TRACE (18,24):n == 1000 && i == 1 && j == i && ^a[j-1] <= temp && ^a[j] == temp
+TRACE (18,24):等式替换前：i == i+1
+TRACE (18,24):等式替换后：i == %2i+1
+TRACE (18,24):Constrait_Assertion_Unfolder Begin
+TRACE (18,24):Constrait_Assertion_Unfolder Finished
+TRACE (18,24):Task before Hoare Assignment Rule Finished#######
+TRACE (18,24):过度展开后的断言：
+TRACE (18,24):n == 1000 && i == 1 && j < i && ^a[0] == ^a[1] && ^a[j-1] <= temp && ^a[j] == temp
+TRACE (18,24):等式替换前：i == i+1
+TRACE (18,24):等式替换后：i == %2i+1
+TRACE (18,24):Constrait_Assertion_Unfolder Begin
+TRACE (18,24):Scan Array :\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]
+TRACE (18,24):Scan Array :^a[!k] <= ^a[!k+1]
+TRACE (18,24):Scan Array :^a[!k]
+TRACE (18,24):Scan Array :^a[!k+1]
+TRACE (18,24):Constrait_Assertion_Unfolder Finished
+TRACE (18,24):Task before Hoare Assignment Rule Finished#######
+TRACE (18,24):过度展开后的断言：
+TRACE (18,24):
+    1 < i && i < n && j == i && n == 1000 && ^a[j] == temp && ^a[j-1] <= temp && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+
+TRACE (18,24):等式替换前：i == i+1
+TRACE (18,24):等式替换后：i == %2i+1
+TRACE (18,24):Constrait_Assertion_Unfolder Begin
+TRACE (18,24):Scan Array :\forall integer !k:[0..j-1].^a[!k] <= temp
+TRACE (18,24):Scan Array :^a[!k] <= temp
+TRACE (18,24):Scan Array :^a[!k]
+TRACE (18,24):Scan Array :temp
+TRACE (18,24):Scan Array :\forall integer !k:[j..i].^a[!k] > temp
+TRACE (18,24):Scan Array :^a[!k] > temp
+TRACE (18,24):Scan Array :^a[!k]
+TRACE (18,24):Scan Array :temp
+TRACE (18,24):Scan Array :\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]
+TRACE (18,24):Scan Array :^a[!k] <= ^a[!k+1]
+TRACE (18,24):Scan Array :^a[!k]
+TRACE (18,24):Scan Array :^a[!k+1]
+TRACE (18,24):Constrait_Assertion_Unfolder Finished
+TRACE (18,24):Task before Hoare Assignment Rule Finished#######
+TRACE (18,24):过度展开后的断言：
+TRACE (18,24):
+    1 < i && i < n && 0 < j && j < i && n == 1000 && ^a[j] == temp && ^a[j-1] <= temp && 
+    (\forall integer !k:[j..i].^a[!k] > temp) && 
+    (\forall integer !k:[0..j-1].^a[!k] <= temp) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+
+TRACE (18,24):等式替换前：i == i+1
+TRACE (18,24):等式替换后：i == %2i+1
+TRACE (18,24):Constrait_Assertion_Unfolder Begin
+TRACE (18,24):Scan Array :\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]
+TRACE (18,24):Scan Array :^a[!k] <= ^a[!k+1]
+TRACE (18,24):Scan Array :^a[!k]
+TRACE (18,24):Scan Array :^a[!k+1]
+TRACE (18,24):Constrait_Assertion_Unfolder Finished
+TRACE (18,24):Task before Hoare Assignment Rule Finished#######
+TRACE (18,24):过度展开后的断言：
+TRACE (18,24):
+    1 < i && i < n && j == 0 && n == 1000 && ^a[j] == temp && ^a[0] == ^a[1] && ^a[j-1] <= temp && 
+    (\forall integer !k:[1..i-1].^a[!k] <= ^a[!k+1]) 
+
+TRACE (18,24):等式替换前：i == i+1
+TRACE (18,24):等式替换后：i == %2i+1
+TRACE (18,24):after smpl current assertion:
+INFO #@(18,24):AS={Q(0):n == 1000 && %2i == 1 && j < %2i && ^a[0] == ^a[1] && j <= 0 && ^a[j] == temp && i == %2i+1}
+INFO #@(18,24):AS={P(0):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(18,24):AS={Q(1):
+    j == 0 && j <= 0 && 1 < %2i && %2i < n && n == 1000 && i == %2i+1 && ^a[j] == temp && 
+    ^a[0] == ^a[1] && 
+    (\forall integer !k:[1..%2i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(18,24):AS={P(1):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(18,24):AS={Q(2):n == 1000 && %2i == 1 && j == %2i && ^a[j-1] <= temp && ^a[j] == temp && i == %2i+1}
+INFO #@(18,24):AS={P(2):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(18,24):AS={Q(3):
+    j < %2i && %2i == 1 && n == 1000 && i == %2i+1 && ^a[j] == temp && ^a[0] == ^a[1] && 
+    ^a[j-1] <= temp }
+
+INFO #@(18,24):AS={P(3):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(18,24):AS={Q(4):
+    1 < %2i && %2i < n && j == %2i && n == 1000 && i == %2i+1 && ^a[j] == temp && ^a[j-1] <= temp && 
+    (\forall integer !k:[0..%2i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(18,24):AS={P(4):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(18,24):AS={Q(5):
+    0 < j && 1 < %2i && %2i < n && j < %2i && n == 1000 && i == %2i+1 && ^a[j] == temp && 
+    ^a[j-1] <= temp && 
+    (\forall integer !k:[j..%2i].^a[!k] > temp) && 
+    (\forall integer !k:[0..j-1].^a[!k] <= temp) && 
+    (\forall integer !k:[0..%2i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(18,24):AS={P(5):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(18,24):AS={Q(6):
+    j == 0 && 1 < %2i && %2i < n && n == 1000 && i == %2i+1 && ^a[j] == temp && ^a[0] == ^a[1] && 
+    ^a[j-1] <= temp && 
+    (\forall integer !k:[1..%2i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(18,24):AS={P(6):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+TRACE (18,24):#####BinaryOperator_end#####
+
+TRACE (18,24):CPV-C:assertion1 ==> assertion2:
+INFO #@(18,24):AS={Q(0):n == 1000 && %2i == 1 && j < %2i && ^a[0] == ^a[1] && j <= 0 && ^a[j] == temp && i == %2i+1}
+INFO #@(18,24):AS={P(0):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(18,24):AS={Q(1):
+    j == 0 && j <= 0 && 1 < %2i && %2i < n && n == 1000 && i == %2i+1 && ^a[j] == temp && 
+    ^a[0] == ^a[1] && 
+    (\forall integer !k:[1..%2i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(18,24):AS={P(1):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(18,24):AS={Q(2):n == 1000 && %2i == 1 && j == %2i && ^a[j-1] <= temp && ^a[j] == temp && i == %2i+1}
+INFO #@(18,24):AS={P(2):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(18,24):AS={Q(3):
+    j < %2i && %2i == 1 && n == 1000 && i == %2i+1 && ^a[j] == temp && ^a[0] == ^a[1] && 
+    ^a[j-1] <= temp }
+
+INFO #@(18,24):AS={P(3):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(18,24):AS={Q(4):
+    1 < %2i && %2i < n && j == %2i && n == 1000 && i == %2i+1 && ^a[j] == temp && ^a[j-1] <= temp && 
+    (\forall integer !k:[0..%2i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(18,24):AS={P(4):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(18,24):AS={Q(5):
+    0 < j && 1 < %2i && %2i < n && j < %2i && n == 1000 && i == %2i+1 && ^a[j] == temp && 
+    ^a[j-1] <= temp && 
+    (\forall integer !k:[j..%2i].^a[!k] > temp) && 
+    (\forall integer !k:[0..j-1].^a[!k] <= temp) && 
+    (\forall integer !k:[0..%2i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(18,24):AS={P(5):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(18,24):AS={Q(6):
+    j == 0 && 1 < %2i && %2i < n && n == 1000 && i == %2i+1 && ^a[j] == temp && ^a[0] == ^a[1] && 
+    ^a[j-1] <= temp && 
+    (\forall integer !k:[1..%2i-1].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(18,24):AS={P(6):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(18,24):VC={==>}
+INFO #@(18,24):AS={Q(0):n == 1000 && i == 1 && \length(a) == n}
+INFO #@(18,24):AS={P(0):\true }
+INFO #@(18,24):AS={Q(1):
+    1 < i && i < n && n == 1000 && \length(a) == n && 
+    (\forall integer !k:[0..i-1].a[!k] <= a[!k+1]) }
+
+INFO #@(18,24):AS={P(1):\true }
+INFO #@(18,24):AS={Q(2):n == 1000 && i == n && \length(a) == n && (\forall integer !k:[0..i-2].a[!k] <= a[!k+1])}
+INFO #@(18,24):AS={P(2):\true }
+TRACE (18,24):InterfaceOfZ3::Z3_CorrectnessProof:
+INFO #@(18,24):VC={CPV - C:Call Z3:
+    j <= 0 && j < %2i && %2i == 1 && n == 1000 && i == %2i+1 && ^a[j] == temp && ^a[0] == ^a[1] && 
+    a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) 
+ ==>
+    i == 1 && n == n && n == 1000 
+  ||
+    1 < i && i < n && n == n && n == 1000 && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+  ||
+    i == n && n == n && n == 1000 && 
+    (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(18,24):Z3={VC got from CPVCaculator :
+n == 1000 && %2i == 1 && j < %2i && ^a[0] == ^a[1] && j <= 0 && ^a[j] == temp && i == %2i+1 && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) ==> n == 1000 && i == 1 && n == n || n == 1000 && 1 < i && i < n && n == n && (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) || n == 1000 && i == n && n == n && (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1])}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc65.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Analyse ill VC [start]}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc66.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc67.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Ill smallVC's consequence: i == 1,		第1个分支}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc68.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc69.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc70.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc71.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc72.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc73.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Ill smallVC's consequence: \forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1],		第2个分支}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc74.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc75.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Ill smallVC's consequence: i == n,		第3个分支}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc76.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc77.smt2}
+INFO #@(18,24):Z3={Analyse ill VC [end]}
+INFO #@(18,24):VR={CPV-C:Q(0):(Invalid)}
+TRACE (18,24):InterfaceOfZ3::Z3_CorrectnessProof:
+INFO #@(18,24):VC={CPV - C:Call Z3:
+    j == 0 && j <= 0 && 1 < %2i && %2i < n && n == 1000 && i == %2i+1 && ^a[j] == temp && 
+    ^a[0] == ^a[1] && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[1..%2i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    i == 1 && n == n && n == 1000 
+  ||
+    1 < i && i < n && n == n && n == 1000 && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+  ||
+    i == n && n == n && n == 1000 && 
+    (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(18,24):Z3={VC got from CPVCaculator :
+n == 1000 && 1 < %2i && %2i < n && j == 0 && (\forall integer !k:[1..%2i-1].^a[!k] <= ^a[!k+1]) && ^a[0] == ^a[1] && j <= 0 && ^a[j] == temp && i == %2i+1 && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) ==> n == 1000 && i == 1 && n == n || n == 1000 && 1 < i && i < n && n == n && (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) || n == 1000 && i == n && n == n && (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1])}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc78.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Analyse ill VC [start]}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc79.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc80.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Ill smallVC's consequence: i == 1,		第1个分支}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc81.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc82.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc83.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc84.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Ill smallVC's consequence: i < n,		第2个分支}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc85.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc86.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Ill smallVC's consequence: \forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1],		第2个分支}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc87.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc88.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Ill smallVC's consequence: i == n,		第3个分支}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc89.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc90.smt2}
+INFO #@(18,24):Z3={Analyse ill VC [end]}
+INFO #@(18,24):VR={CPV-C:Q(1):(Invalid)}
+TRACE (18,24):InterfaceOfZ3::Z3_CorrectnessProof:
+INFO #@(18,24):VC={CPV - C:Call Z3:
+    %2i == 1 && j == %2i && n == 1000 && i == %2i+1 && ^a[j] == temp && ^a[j-1] <= temp && 
+    a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) 
+ ==>
+    i == 1 && n == n && n == 1000 
+  ||
+    1 < i && i < n && n == n && n == 1000 && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+  ||
+    i == n && n == n && n == 1000 && 
+    (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(18,24):Z3={VC got from CPVCaculator :
+n == 1000 && %2i == 1 && j == %2i && ^a[j-1] <= temp && ^a[j] == temp && i == %2i+1 && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) ==> n == 1000 && i == 1 && n == n || n == 1000 && 1 < i && i < n && n == n && (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) || n == 1000 && i == n && n == n && (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1])}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc91.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Analyse ill VC [start]}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc92.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc93.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Ill smallVC's consequence: i == 1,		第1个分支}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc94.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc95.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc96.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc97.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc98.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc99.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Ill smallVC's consequence: \forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1],		第2个分支}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc100.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc101.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Ill smallVC's consequence: i == n,		第3个分支}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc102.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc103.smt2}
+INFO #@(18,24):Z3={Analyse ill VC [end]}
+INFO #@(18,24):VR={CPV-C:Q(2):(Invalid)}
+TRACE (18,24):InterfaceOfZ3::Z3_CorrectnessProof:
+INFO #@(18,24):VC={CPV - C:Call Z3:
+    j < %2i && %2i == 1 && n == 1000 && i == %2i+1 && ^a[j] == temp && ^a[0] == ^a[1] && 
+    ^a[j-1] <= temp && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) 
+ ==>
+    i == 1 && n == n && n == 1000 
+  ||
+    1 < i && i < n && n == n && n == 1000 && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+  ||
+    i == n && n == n && n == 1000 && 
+    (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(18,24):Z3={VC got from CPVCaculator :
+n == 1000 && %2i == 1 && j < %2i && ^a[0] == ^a[1] && ^a[j-1] <= temp && ^a[j] == temp && i == %2i+1 && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) ==> n == 1000 && i == 1 && n == n || n == 1000 && 1 < i && i < n && n == n && (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) || n == 1000 && i == n && n == n && (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1])}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc104.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Analyse ill VC [start]}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc105.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc106.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Ill smallVC's consequence: i == 1,		第1个分支}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc107.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc108.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc109.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc110.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc111.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc112.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Ill smallVC's consequence: \forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1],		第2个分支}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc113.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc114.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Ill smallVC's consequence: i == n,		第3个分支}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc115.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc116.smt2}
+INFO #@(18,24):Z3={Analyse ill VC [end]}
+INFO #@(18,24):VR={CPV-C:Q(3):(Invalid)}
+TRACE (18,24):InterfaceOfZ3::Z3_CorrectnessProof:
+INFO #@(18,24):VC={CPV - C:Call Z3:
+    1 < %2i && %2i < n && j == %2i && n == 1000 && i == %2i+1 && ^a[j] == temp && ^a[j-1] <= temp && 
+    a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[0..%2i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    i == 1 && n == n && n == 1000 
+  ||
+    1 < i && i < n && n == n && n == 1000 && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+  ||
+    i == n && n == n && n == 1000 && 
+    (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(18,24):Z3={VC got from CPVCaculator :
+n == 1000 && 1 < %2i && %2i < n && j == %2i && (\forall integer !k:[0..%2i-1].^a[!k] <= ^a[!k+1]) && ^a[j-1] <= temp && ^a[j] == temp && i == %2i+1 && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) ==> n == 1000 && i == 1 && n == n || n == 1000 && 1 < i && i < n && n == n && (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) || n == 1000 && i == n && n == n && (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1])}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc117.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Analyse ill VC [start]}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc118.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc119.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Ill smallVC's consequence: i == 1,		第1个分支}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc120.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc121.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc122.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc123.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Ill smallVC's consequence: i < n,		第2个分支}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc124.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc125.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Ill smallVC's consequence: \forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1],		第2个分支}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc126.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc127.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Ill smallVC's consequence: i == n,		第3个分支}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc128.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc129.smt2}
+INFO #@(18,24):Z3={Analyse ill VC [end]}
+INFO #@(18,24):VR={CPV-C:Q(4):(Invalid)}
+TRACE (18,24):InterfaceOfZ3::Z3_CorrectnessProof:
+INFO #@(18,24):VC={CPV - C:Call Z3:
+    0 < j && 1 < %2i && %2i < n && j < %2i && n == 1000 && i == %2i+1 && ^a[j] == temp && 
+    ^a[j-1] <= temp && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[j..%2i].^a[!k] > temp) && 
+    (\forall integer !k:[0..j-1].^a[!k] <= temp) && 
+    (\forall integer !k:[0..%2i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    i == 1 && n == n && n == 1000 
+  ||
+    1 < i && i < n && n == n && n == 1000 && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+  ||
+    i == n && n == n && n == 1000 && 
+    (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(18,24):Z3={VC got from CPVCaculator :
+n == 1000 && 1 < %2i && %2i < n && 0 < j && j < %2i && (\forall integer !k:[0..%2i-1].^a[!k] <= ^a[!k+1]) && (\forall integer !k:[j..%2i].^a[!k] > temp) && (\forall integer !k:[0..j-1].^a[!k] <= temp) && ^a[j-1] <= temp && ^a[j] == temp && i == %2i+1 && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) ==> n == 1000 && i == 1 && n == n || n == 1000 && 1 < i && i < n && n == n && (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) || n == 1000 && i == n && n == n && (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1])}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc130.smt2}
+TRACE (18,24):InterfaceOfZ3::Z3_CorrectnessProof:
+INFO #@(18,24):VC={CPV - C:Call Z3:
+    j == 0 && 1 < %2i && %2i < n && n == 1000 && i == %2i+1 && ^a[j] == temp && ^a[0] == ^a[1] && 
+    ^a[j-1] <= temp && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[1..%2i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    i == 1 && n == n && n == 1000 
+  ||
+    1 < i && i < n && n == n && n == 1000 && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+  ||
+    i == n && n == n && n == 1000 && 
+    (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1]) }
+
+INFO #@(18,24):Z3={VC got from CPVCaculator :
+n == 1000 && 1 < %2i && %2i < n && j == 0 && (\forall integer !k:[1..%2i-1].^a[!k] <= ^a[!k+1]) && ^a[0] == ^a[1] && ^a[j-1] <= temp && ^a[j] == temp && i == %2i+1 && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) ==> n == 1000 && i == 1 && n == n || n == 1000 && 1 < i && i < n && n == n && (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) || n == 1000 && i == n && n == n && (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1])}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc131.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Analyse ill VC [start]}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc132.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc133.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Ill smallVC's consequence: i == 1,		第1个分支}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc134.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc135.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc136.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc137.smt2}
+INFO #@(18,24):Z3={Prove Unknown!}
+INFO #@(18,24):Z3={Ill smallVC's consequence: i < n,		第2个分支}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc138.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc139.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Ill smallVC's consequence: \forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1],		第2个分支}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc140.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc141.smt2}
+INFO #@(18,24):Z3={Prove Invalid!}
+INFO #@(18,24):Z3={Ill smallVC's consequence: i == n,		第3个分支}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc142.smt2}
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc143.smt2}
+INFO #@(18,24):Z3={Analyse ill VC [end]}
+INFO #@(18,24):VR={CPV-C:Q(6):(Invalid)}
+INFO #@(18,24):VR={CPV-C:Loop Exits(Invalid)}
+TRACE (18,24):IOfZ3::CorrectnessProofForMinor:
+TRACE (18,24):CPV - C:Call Z3:
+    i == 1 && i >= n && n == 1000 && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) 
+ ==>
+    \false 
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc144.smt2}
+TRACE (18,24):IOfZ3::CorrectnessProofForMinor:
+TRACE (18,24):CPV - C:Call Z3:
+    1 < i && i < n && i >= n && n == 1000 && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[0..i-1].^a[!k] <= ^a[!k+1]) 
+ ==>
+    \false 
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc145.smt2}
+TRACE (18,24):IOfZ3::CorrectnessProofForMinor:
+TRACE (18,24):CPV - C:Call Z3:
+    i == n && i >= n && n == 1000 && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1]) 
+ ==>
+    \false 
+INFO #@(18,24):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc146.smt2}
+TRACE (18,24):after smpl current assertion:
+INFO #@(18,24):AS={Q(0):n == 1000 && i == n && (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1]) && i >= n}
+INFO #@(18,24):AS={P(0):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+TRACE (18,24):#####ForStmt_end#####
+
+TRACE (42,5):&&&&&&ReturnStmt_start&&&&&&
+INFO #@(42,5):AS={获取的函数后条件}
+INFO #@(42,5):AS={Q(0):(\forall integer !i:[0..n-2].a[!i] <= a[!i+1]) && \length(a) == n}
+INFO #@(42,5):AS={P(0):\true }
+TRACE (42,5):CPV-C:assertion1 ==> assertion2:
+INFO #@(42,5):AS={Q(0):n == 1000 && i == n && (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1]) && i >= n}
+INFO #@(42,5):AS={P(0):a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0)}
+INFO #@(42,5):VC={==>}
+INFO #@(42,5):AS={Q(0):(\forall integer !i:[0..n-2].a[!i] <= a[!i+1]) && \length(a) == n}
+INFO #@(42,5):AS={P(0):\true }
+TRACE (42,5):InterfaceOfZ3::Z3_CorrectnessProof:
+INFO #@(42,5):VC={CPV - C:Call Z3:
+    i == n && i >= n && n == 1000 && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) && 
+    (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1]) 
+ ==>
+    (\forall integer !i:[0..n-2].^a[!i] <= ^a[!i+1]) && n == n}
+
+INFO #@(42,5):Z3={VC got from CPVCaculator :
+n == 1000 && i == n && (\forall integer !k:[0..i-2].^a[!k] <= ^a[!k+1]) && i >= n && a == \pointer(^a, n, 0) && ^a == \pointer(^a, n, 0) ==> (\forall integer !i:[0..n-2].^a[!i] <= ^a[!i+1]) && n == n}
+INFO #@(42,5):Z3={Current Z3 SMT2 file: E:/Desktop/Working/.info\is.c\Z3\_Z3Vc147.smt2}
+INFO #@(42,5):VR={CPV-C:ReturnStmt(Valid)}
+TRACE (42,5):after smpl current assertion:
+INFO #@(42,5):AS={Q(0):\false }
+INFO #@(42,5):AS={P(0):\true }
+TRACE (42,5):#####ReturnStmt_end#####
+
+TRACE (43,1):CPV-C:assertion1 ==> assertion2:
+INFO #@(43,1):AS={Q(0):\false }
+INFO #@(43,1):AS={P(0):\true }
+INFO #@(43,1):VC={==>}
+INFO #@(43,1):AS={Q(0):(\forall integer !i:[0..n-2].a[!i] <= a[!i+1]) && \length(a) == n}
+INFO #@(43,1):AS={P(0):\true }
+ERROR (43,1):VR={蕴涵式前件为false(Warnning)}}
+INFO #@(43,1):VR={CPV-C:Func Exit(Valid)}
+TRACE (43,1):函数结束，进行扫尾工作
+TRACE (43,1):最近调用的形状图模块函数：,当前序号：0

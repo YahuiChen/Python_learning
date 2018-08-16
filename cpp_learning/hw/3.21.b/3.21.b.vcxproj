@@ -142,11 +142,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="checkBalanceSymbol.h" />
+    <ClCompile Include="3.21.b.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="3.21.b.cpp" />
-    <ClCompile Include="checkBalanceSymbol.cpp" />
+    <ClInclude Include="stack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

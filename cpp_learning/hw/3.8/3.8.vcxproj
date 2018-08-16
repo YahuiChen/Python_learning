@@ -21,6 +21,10 @@
   <ItemGroup>
     <ClCompile Include="3.8.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Dsexceptions.h" />
+    <ClInclude Include="vector.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8A1FF6C7-B775-4C0F-A807-6AA203723D68}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
