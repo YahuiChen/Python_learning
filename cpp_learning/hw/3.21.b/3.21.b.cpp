@@ -1,4 +1,4 @@
-#include "stack.h"
+#include <stack>
 #include <iostream>
 #include <string>
 
@@ -6,11 +6,11 @@ using namespace std;
 
 void testPair()
 {
-    Stack<string> stack;
+    stack<string> stack;
     string s(""), expected("");
     while (s != "e" && s != "E")
     {
-        cout << "Enter symbols to test, e to end: /n";
+        cout << "Enter symbols to test, e to end: " << endl;
         cin >> s;
 
         if (s == expected)
@@ -70,11 +70,11 @@ void testPair()
 
     if (stack.empty())
     {
-        cout << "You entered symbol form pairs/n";
+        cout << "You entered symbol from pairs" << endl;
     }
     else
     {
-        cout << "The symbols you entered do not form pairs/n";
+        cout << "The symbols you entered do not form pairs" << endl;
     }
 }
 
