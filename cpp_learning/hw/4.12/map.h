@@ -99,8 +99,8 @@ public:
             if (*it == key)
                 return it;
             ++it;
-        }x
-            return it;
+        }
+        return it;
     }
 
     iterator erase(const iterator& it)
