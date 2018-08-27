@@ -1,3 +1,4 @@
 ﻿  4.12.cpp
-MSVCRTD.lib(exe_main.obj) : error LNK2019: 无法解析的外部符号 _main，该符号在函数 "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ) 中被引用
-E:\Documents\GitHub\Python_learning\cpp_learning\hw\Debug\4.12.exe : fatal error LNK1120: 1 个无法解析的外部命令
+e:\documents\github\python_learning\cpp_learning\hw\4.12\4.12.cpp(8): warning C4101: “a”: 未引用的局部变量
+  4.12.vcxproj -> E:\Documents\GitHub\Python_learning\cpp_learning\hw\Debug\4.12.exe
+  4.12.vcxproj -> E:\Documents\GitHub\Python_learning\cpp_learning\hw\Debug\4.12.pdb (Full PDB)

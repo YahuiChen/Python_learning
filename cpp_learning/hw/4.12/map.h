@@ -109,6 +109,7 @@ public:
     }
 
     iterator erase(const iterator& start, const iterator& end)
+
     {
         return iterator(store->erase(start.it, end.it));
     }
