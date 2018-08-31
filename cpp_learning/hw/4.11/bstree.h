@@ -1,7 +1,7 @@
 #ifndef BSTREE_HPP__
 #define BSTREE_HPP__
 
-#include <iosfwd>
+//#include <iosfwd>
 
 template< typename Object >
 class Set;
@@ -9,13 +9,14 @@ class Set;
 const int Null = 0;
 
 template< typename Object >
-class BSTree {
+class BSTree
+{
 private:
-    class Node {
+    class Node
+    {
     public:
         Node(const Object& val = Object(), Node* l = Null, Node* r = Null,
-            Node* p = Null) : parent(p), lChild(l),
-            rChild(r), data(val)
+            Node* p = Null) : parent(p), lChild(l), rChild(r), data(val)
         {}
 
     public:
@@ -40,14 +41,6 @@ public:
     {
         return root == Null;
     }
-    void printTree(std::ostream& out)
-    {
-        if (empty())
-            out << "empty tree/n";
-        else
-            printTree(root, out);
-    }
-
     void clear()
     {
         clear(root);
@@ -55,10 +48,6 @@ public:
     void add(const Object& val)
     {
         insert(val, root, parent);
-    }
-    void del(const Object& val)
-    {
-        remove(val, root, parent);
     }
 
 private:
@@ -72,36 +61,6 @@ private:
             insert(val, t->rChild, t);
         else
             return;
-    }
-
-    void remove(const Object& val, Node* &t, Node* &parent)
-    {
-        if (t == Null)
-            return;
-
-        if (val < t->data)
-            remove(val, t->lChild, t);
-        else if (t->data < val)
-            remove(val, t->rChild, t);
-        else if (t->lChild != Null && t->rChild != Null)
-        {
-            t->data = findMin(t->rChild)->data;
-            remove(t->data, t->rChild, t);
-        }
-        else if ((t->lChild != Null && t->rChild == Null) ||
-            (t->lChild == Null && t->rChild != Null))
-        {
-            Node* old = t;
-            t = (t->lChild != Null) ? t->lChild : t->rChild;
-            t->parent = old->parent;
-            delete old;
-        }
-        else
-        {
-            t->parent->rChild == t ? t->parent->rChild = Null :
-                t->parent->lChild = Null;
-            delete t;
-        }
     }
 
     bool contains(const Object& val, Node* t) const
@@ -141,16 +100,6 @@ private:
             delete t;
         }
         t = Null;
-    }
-
-    void printTree(Node* t, std::ostream& out)
-    {
-        if (t != Null)
-        {
-            printTree(t->lChild, out);
-            out << t->data << "/n";
-            printTree(t->rChild, out);
-        }
     }
 
 private:

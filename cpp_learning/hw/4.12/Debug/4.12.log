@@ -1,4 +1,6 @@
 ﻿  4.12.cpp
-e:\documents\github\python_learning\cpp_learning\hw\4.12\4.12.cpp(8): warning C4101: “a”: 未引用的局部变量
-  4.12.vcxproj -> E:\Documents\GitHub\Python_learning\cpp_learning\hw\Debug\4.12.exe
-  4.12.vcxproj -> E:\Documents\GitHub\Python_learning\cpp_learning\hw\Debug\4.12.pdb (Full PDB)
+e:\documents\github\python_learning\cpp_learning\hw\4.12\4.12.cpp(11): warning C4101: “a”: 未引用的局部变量
+e:\documents\github\python_learning\cpp_learning\hw\4.12\map.h(11): error C2614: “Map<std::string,int>::iterator”: 非法的成员初始化:“it”不是基或成员
+  e:\documents\github\python_learning\cpp_learning\hw\4.12\map.h(11): note: 编译类 模板 成员函数“Map<std::string,int>::iterator::iterator(void)”时
+  e:\documents\github\python_learning\cpp_learning\hw\4.12\4.12.cpp(32): note: 参见对正在编译的函数 模板 实例化“Map<std::string,int>::iterator::iterator(void)”的引用
+  e:\documents\github\python_learning\cpp_learning\hw\4.12\4.12.cpp(32): note: 参见对正在编译的类 模板 实例化“Map<std::string,int>::iterator”的引用

@@ -43,6 +43,7 @@ public:
         {
             return current == rhs.current;
         }
+
         bool operator!=(const const_iterator& rhs) const
         {
             return !(*this == rhs);
@@ -92,33 +93,12 @@ public:
         return 1;
     }
 
-    bool insert(const Object& val, const_iterator it) const
-    {
-        if (tree->contains(val))
-            return false;
-
-        tree->insert(val, it.current, it.current->parent);
-        return true;
-    }
-
     const_iterator erase(const_iterator it)
     {
         const_iterator old = it;
         ++old;
         erase(it.current->data);
         return old;
-    }
-
-    const_iterator erase(const_iterator start, const_iterator end)
-    {
-        while (start != end)
-            erase(start++);
-        return end;
-    }
-
-    void print(std::ostream& out)
-    {
-        tree->printTree(out);
     }
 
 private:

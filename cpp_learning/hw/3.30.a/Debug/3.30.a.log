@@ -1,3 +1,7 @@
 ﻿  3.30.a.cpp
-  3.30.a.vcxproj -> E:\Documents\GitHub\Python_learning\cpp_learning\hw\Debug\3.30.a.exe
-  3.30.a.vcxproj -> E:\Documents\GitHub\Python_learning\cpp_learning\hw\Debug\3.30.a.pdb (Full PDB)
+e:\documents\github\python_learning\cpp_learning\hw\3.30.a\3.30.a.cpp(10): warning C4101: “j”: 未引用的局部变量
+e:\documents\github\python_learning\cpp_learning\hw\3.30.a\3.30.a.cpp(10): warning C4101: “temp”: 未引用的局部变量
+e:\documents\github\python_learning\cpp_learning\hw\3.30.a\salist.h(39): error C3490: 由于正在通过常量对象访问“theSize”，因此无法对其进行修改
+  e:\documents\github\python_learning\cpp_learning\hw\3.30.a\salist.h(38): note: 编译类 模板 成员函数“const int SelfAdjustList<int>::pop_front(void) const”时
+  e:\documents\github\python_learning\cpp_learning\hw\3.30.a\3.30.a.cpp(19): note: 参见对正在编译的函数 模板 实例化“const int SelfAdjustList<int>::pop_front(void) const”的引用
+  e:\documents\github\python_learning\cpp_learning\hw\3.30.a\3.30.a.cpp(11): note: 参见对正在编译的类 模板 实例化“SelfAdjustList<int>”的引用

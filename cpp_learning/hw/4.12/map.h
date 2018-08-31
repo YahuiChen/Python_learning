@@ -49,13 +49,6 @@ public:
         {
             return &(*it);
         }
-
-    private:
-        iterator(typename std::set< std::pair< KeyType, ValueType > >::iterator& i)
-            : it(i) {}
-
-        typename std::set< std::pair< KeyType, ValueType > >::iterator it;
-        friend class Map<KeyType, ValueType>;
     };
 
 public:

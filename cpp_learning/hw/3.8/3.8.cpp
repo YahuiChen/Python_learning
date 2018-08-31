@@ -27,8 +27,8 @@ int main()
     }
 
     Vector<int>::iterator m = v.begin() + 6;
-    //m = v.erase(m);//正确用法
-    v.erase(m); //这样是错误的，会使当前迭代器m失效，必须返回新的迭代器，像上面那样用
+    m = v.erase(m);//正确用法
+    //v.erase(m); //这样是错误的，会使当前迭代器m失效，必须返回新的迭代器，像上面那样用
     cout << "\nerase:" << *m << endl;
 
     for (m = v.begin(); m != v.end(); ) {

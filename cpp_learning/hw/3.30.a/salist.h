@@ -34,11 +34,6 @@ public:
         objects[theSize++] = val;
     }
 
-    const Object pop_front() const
-    {
-        return objects[theSize--];
-    }
-
     const Object top() const
     {
         return objects[theSize - 1];

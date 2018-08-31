@@ -2,7 +2,8 @@
 #include<algorithm>
 using namespace std;
 
-typedef struct BinaryTreeNode {
+typedef struct BinaryTreeNode
+{
     int value;
     BinaryTreeNode *m_pLeft;
     BinaryTreeNode *m_pRight;
@@ -10,19 +11,20 @@ typedef struct BinaryTreeNode {
 
 int max_height = -1;
 
-void addBTNode(BTNode *&myBT, int val);//添加节点
-void createBT(BTNode *&BT, int arr[], int n);//创建二叉排序树,通过*&来改变指针的值
+void addBTNode(BTNode *&myBT, int val);
+void createBT(BTNode *&BT, int arr[], int n);
 
-void midorder_showBT(BTNode *myBT);//中序遍历打印，如果是二叉排序树，打印结果与单调递增数组一样
+void midorder_showBT(BTNode *myBT);
 
 int b[100];
 int idx = 0;
-void is_BST(BTNode *myBT);//判断是否是二叉排序树
+void is_BST(BTNode *myBT);
 
-int main() {
+int main()
+{
     BTNode *myBT = nullptr;
 
-    int arr[10] = { 314,426,12,78,143,8,21,14,9,314 };
+    int arr[10] = { 314,426,12,78,143,8,21,9,1,314 };
     createBT(myBT, arr, 10);
 
     midorder_showBT(myBT);
@@ -32,9 +34,12 @@ int main() {
     bool isBT = true;
     if (idx == 1 || idx == 0)
         cout << "是BST" << endl;
-    else {
-        for (int i = 0; i < idx - 1; i++) {
-            if (b[i] >= b[i + 1]) {
+    else
+    {
+        for (int i = 0; i < idx - 1; i++)
+        {
+            if (b[i] >= b[i + 1])
+            {
                 isBT = false;
                 break;
             }
@@ -48,7 +53,8 @@ int main() {
     return 0;
 }
 
-void is_BST(BTNode *myBT) {
+void is_BST(BTNode *myBT)
+{
     if (myBT == nullptr)
         return;
     is_BST(myBT->m_pLeft);
@@ -56,14 +62,17 @@ void is_BST(BTNode *myBT) {
     is_BST(myBT->m_pRight);
 }
 
-void createBT(BTNode *&BT, int arr[], int n) {
+void createBT(BTNode *&BT, int arr[], int n)
+{
     BT = nullptr;
     for (int i = 0; i < n; i++)
         addBTNode(BT, arr[i]);
 }
 
-void addBTNode(BTNode *&myBT, int val) {
-    if (myBT == nullptr) {
+void addBTNode(BTNode *&myBT, int val)
+{
+    if (myBT == nullptr)
+    {
         myBT = new BinaryTreeNode();
         myBT->value = val;
         myBT->m_pLeft = nullptr;
@@ -71,18 +80,22 @@ void addBTNode(BTNode *&myBT, int val) {
         return;
     }
 
-    if (val == myBT->value) {
+    if (val == myBT->value)
+    {
         return;
     }
-    else if (val < myBT->value) {
+    else if (val < myBT->value)
+    {
         addBTNode(myBT->m_pLeft, val);
     }
-    else {
+    else
+    {
         addBTNode(myBT->m_pRight, val);
     }
 }
 
-void midorder_showBT(BTNode *myBT) {//中序遍历打印 {
+void midorder_showBT(BTNode *myBT)
+{
     if (myBT == nullptr)
         return;
 
